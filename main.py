@@ -10,7 +10,7 @@ def main():
         url = 'https://www.xorpd.net/pages/xchg_rax/snip_%s.html' % i_hex
         # print(url)
         page = requests.get(url).content
-        # asm = re.findall(r'<pre>.*</pre>', page)
+        # asm = re.findall(r'<pre>(.|\n)*</pre>', page)
         start = page.find('<pre>')
         end = page.find('</pre>', start + 1)
         asm = page[start + 5 : end]
